@@ -1,0 +1,20 @@
+<import src="post-item/post-item-template.wxml" />
+
+<view>
+    <swiper indicator-dots='true' autoplay='true' interval='3000' catchtap='onSwiperTap'>
+        <swiper-item>
+            <image src='https://n.sinaimg.cn/tech/crawl/168/w550h418/20180814/3FYz-fzrwica0854953.jpg' data-postId="0"></image>
+        </swiper-item>
+        <swiper-item>
+            <image src='https://n.sinaimg.cn/tech/transform/246/w630h416/20180814/FBa9-hhtfwqq8689451.png' data-postId="1"></image>
+        </swiper-item>
+        <swiper-item>
+            <image src='https://n.sinaimg.cn/tech/transform/249/w630h419/20180814/vGdI-hhtfwqq6732145.png' data-postId="2"></image>
+        </swiper-item>
+    </swiper>
+        <block wx:for="{{posts_key}}" wx:for-item="item" >
+            <view catchtap='onPostTap' data-postId='{{item.postId}}'>
+                 <template is="postItem" data="{{...item}}"/>    <!-- 对象解析-->
+            </view>
+        </block>
+</view>
